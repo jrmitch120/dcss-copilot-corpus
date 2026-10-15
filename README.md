@@ -15,11 +15,11 @@ cargo test -p copilot-replay --test corpus -- --ignored # replays every game on 
 
 ## Adding a game
 
-Record it on local webtiles with `tools/corpus` (see [`docs/corpus.md`](https://github.com/jrmitch120/dcss-copilot/blob/main/docs/corpus.md)), upload it to its version's release, and commit the manifest entry the recorder prints to the main repo:
+Record a seeded game on local webtiles with a dev build of the app (see [`docs/corpus.md`](https://github.com/jrmitch120/dcss-copilot/blob/main/docs/corpus.md)), name it `player-<version>-seed-<seed>.dcssrec`, upload it to its version's release, and add its entry, with its SHA-256, to `corpus.toml` in the main repo:
 
 ```sh
 gh release create crawl-0.34.1 --repo jrmitch120/dcss-copilot-corpus --title "Crawl 0.34.1" --notes ""   # once per version
-gh release upload crawl-0.34.1 --repo jrmitch120/dcss-copilot-corpus qw-0.34.1-seed-7.dcssrec
+gh release upload crawl-0.34.1 --repo jrmitch120/dcss-copilot-corpus player-0.34.1-seed-7.dcssrec
 ```
 
 Never replace an asset in place: a game that changes is a new file with a new hash.
